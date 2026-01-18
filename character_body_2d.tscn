@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bo3nbo4eo2xwy"]
+
+[ext_resource type="Script" uid="uid://cgwb6pko02f11" path="res://character_body_2d.gd" id="1_ij6vw"]
+[ext_resource type="Texture2D" uid="uid://b7ovpwugmwfl4" path="res://uAnkTAAAAAZJREFUAwCtDTtL3AdOxQAAAABJRU5ErkJggg-1.webp" id="2_ghijl"]
+[ext_resource type="Texture2D" uid="uid://cb06mmlvxhwxb" path="res://run.webp" id="3_ghijl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_44cfe"]
+radius = 75.0
+height = 232.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44cfe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ghijl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ghijl")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_ij6vw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(563, 355)
+scale = Vector2(1.2746954, 1.1816659)
+shape = SubResource("CapsuleShape2D_44cfe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(560, 361)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_44cfe")
+animation = &"run"
